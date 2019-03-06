@@ -1,6 +1,6 @@
 <?php
 
-class Personnage
+abstract class Personnage implements Combat
 {
     protected $nom;
     protected $vie = 100;
@@ -9,12 +9,17 @@ class Personnage
     protected $masse;
     protected $race;
 
+    public function resultatCombat($a,$b)
+    {
+        return "$a a vaincu $b";
+    }
+
     protected function marcher()
     {
         return "Je marche!";
     }
 
-    protected function recuperePointDeVie() : int
+    protected function recuperePointDeVie(): int
     {
         return $this->vie;
     }
